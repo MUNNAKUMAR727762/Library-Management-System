@@ -1,4 +1,4 @@
-# Gyan Sthal Hub
+# Library Management System (Gyan Sthal)
 
 Gyan Sthal Hub is a React + Spring Boot library management system for admissions, seat allocation, students, payments, notifications, exports, and QR-based public admission requests.
 
