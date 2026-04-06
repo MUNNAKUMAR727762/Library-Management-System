@@ -138,6 +138,4 @@ The Spring Boot backend keeps the same `/api` contract used by the frontend, inc
 - `/api/public/admission-requests`
 - `/api/files/{fileId}`
 
-## GitHub Notes
-
-This repository now uses Spring Boot for the backend. The previous Flask backend files were removed so the repo reflects a single backend stack and is ready to publish as a Java + React project.
+ 
