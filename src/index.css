@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 221 83% 53%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 38 92% 50%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221 83% 53%;
+
+    --radius: 0.75rem;
+
+    --status-available: 142 71% 45%;
+    --status-occupied: 0 72% 51%;
+    --status-pending: 48 96% 57%;
+    --status-due-soon: 217 91% 60%;
+    --status-disabled: 220 13% 69%;
+    --status-overdue: 0 62% 30%;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 221 83% 53%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 210 40% 96.1%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 214.3 31.8% 91.4%;
+    --sidebar-ring: 221 83% 53%;
+
+    --shadow-card: 0 0 0 1px rgba(0,0,0,.05), 0 1px 2px 0 rgba(0,0,0,.03);
+    --shadow-card-hover: 0 0 0 1px rgba(0,0,0,.07), 0 2px 8px 0 rgba(0,0,0,.06);
+    --shadow-modal: 0 0 0 1px rgba(0,0,0,.05), 0 16px 48px -8px rgba(0,0,0,.12);
+  }
+
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 221 83% 53%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 38 92% 50%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 221 83% 53%;
+    --sidebar-background: 222 47% 6%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 221 83% 53%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 217.2 32.6% 17.5%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217.2 32.6% 17.5%;
+    --sidebar-ring: 221 83% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Figtree', system-ui, sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@layer utilities {
+  @keyframes seat-alert {
+    0%, 100% {
+      box-shadow: 0 0 0 0 hsl(var(--status-overdue) / 0.16);
+    }
+    50% {
+      box-shadow: 0 0 0 8px hsl(var(--status-overdue) / 0.06);
+    }
+  }
+  .tabular-nums {
+    font-feature-settings: 'tnum';
+  }
+  .label-caps {
+    @apply text-xs font-medium uppercase tracking-widest text-muted-foreground;
+  }
+  .card-surface {
+    @apply bg-card text-card-foreground rounded-xl;
+    box-shadow: var(--shadow-card);
+  }
+  .card-surface-hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+  .input-surface {
+    @apply bg-background rounded-lg;
+    box-shadow: 0 0 0 1px hsl(var(--border));
+  }
+  .input-focus {
+    box-shadow: 0 0 0 3px hsl(221 83% 53% / 40%);
+    border-color: hsl(var(--primary));
+  }
+  .animate-seat-alert {
+    animation: seat-alert 1.4s ease-in-out infinite;
+  }
+}
